@@ -15,44 +15,6 @@ files:
         }
     }
   learner_created: false
-- name: src/resources/application.properties
-  visible: true
-  text: |-
-    server.port=8881
-    management.endpoints.web.exposure.include=*
-    management.endpoint.shutdown.enabled=true
-  learner_created: false
-- name: build.gradle
-  visible: true
-  text: |-
-    buildscript {
-        apply plugin: 'hyperskill'
-
-        repositories {
-            mavenCentral()
-        }
-        dependencies {
-            classpath "org.springframework.boot:spring-boot-gradle-plugin:$hs.spring.bootVersion"
-            classpath "io.spring.gradle:dependency-management-plugin:$hs.spring.dependencyManagementVersion"
-        }
-    }
-
-    apply plugin: 'java'
-    apply plugin: 'org.springframework.boot'
-    apply plugin: 'io.spring.dependency-management'
-
-    repositories {
-        mavenCentral()
-    }
-
-    sourceSets.main.resources.srcDirs = ["src/resources"]
-
-    dependencies {
-        implementation 'org.springframework.boot:spring-boot-starter'
-        implementation 'org.springframework.boot:spring-boot-starter-actuator'
-        implementation 'org.springframework.boot:spring-boot-starter-web'
-    }
-  learner_created: false
 - name: test/RecipesApplicationTest.java
   visible: false
   text: |
@@ -308,7 +270,94 @@ files:
         }
     }
   learner_created: false
-- name: src/recipes/controllers/RecipeController.java
+- name: src/recipes/business/BookOfRecipes.java
+  visible: true
+  text: |
+    package recipes.dto;
+
+    import lombok.AllArgsConstructor;
+    import lombok.Data;
+    import lombok.NoArgsConstructor;
+    import org.springframework.stereotype.Component;
+
+    import java.util.Map;
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public class BookOfRecipes {
+
+        private Map<Integer, Recipe> recipes;
+
+    }
+  learner_created: true
+- name: build.gradle
+  visible: true
+  text: |-
+    buildscript {
+        apply plugin: 'hyperskill'
+
+        repositories {
+            mavenCentral()
+        }
+        dependencies {
+            classpath "org.springframework.boot:spring-boot-gradle-plugin:$hs.spring.bootVersion"
+            classpath "io.spring.gradle:dependency-management-plugin:$hs.spring.dependencyManagementVersion"
+        }
+    }
+
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    repositories {
+        mavenCentral()
+    }
+
+    sourceSets.main.resources.srcDirs = ["src/resources"]
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter'
+        implementation 'org.springframework.boot:spring-boot-starter-actuator'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+    }
+  learner_created: false
+- name: src/resources/application.properties
+  visible: true
+  text: |-
+    server.port=8881
+    management.endpoints.web.exposure.include=*
+    management.endpoint.shutdown.enabled=true
+  learner_created: false
+- name: src/recipes/business/RecipeService.java
+  visible: true
+  learner_created: true
+- name: src/recipes/business/Recipe.java
+  visible: true
+  text: |
+    package recipes.dto;
+
+
+    import lombok.AllArgsConstructor;
+    import lombok.Data;
+    import lombok.NoArgsConstructor;
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public class Recipe {
+
+        private String name;
+        private String description;
+        private String[] ingredients;
+        private String[] directions;
+
+    }
+  learner_created: true
+- name: src/recipes/persistance/RecipeRepository.java
+  visible: true
+  learner_created: true
+- name: src/recipes/presentation/RecipeController.java
   visible: true
   text: |
     package recipes.controllers;
@@ -350,49 +399,6 @@ files:
             jsonObject.put("id", id);
             return jsonObject;
         }
-    }
-  learner_created: true
-- name: src/recipes/dto/BookOfRecipes.java
-  visible: true
-  text: |
-    package recipes.dto;
-
-    import lombok.AllArgsConstructor;
-    import lombok.Data;
-    import lombok.NoArgsConstructor;
-    import org.springframework.stereotype.Component;
-
-    import java.util.Map;
-
-    @Data
-    @AllArgsConstructor
-    @NoArgsConstructor
-    public class BookOfRecipes {
-
-        private Map<Integer, Recipe> recipes;
-
-    }
-  learner_created: true
-- name: src/recipes/dto/Recipe.java
-  visible: true
-  text: |
-    package recipes.dto;
-
-
-    import lombok.AllArgsConstructor;
-    import lombok.Data;
-    import lombok.NoArgsConstructor;
-
-    @Data
-    @AllArgsConstructor
-    @NoArgsConstructor
-    public class Recipe {
-
-        private String name;
-        private String description;
-        private String[] ingredients;
-        private String[] directions;
-
     }
   learner_created: true
 feedback_link: https://hyperskill.org/learn/step/13090#comment
