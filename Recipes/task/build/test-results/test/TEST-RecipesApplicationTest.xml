@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="RecipesApplicationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-09-18T17:08:37" hostname="BENGOBRO" time="8.046">
+  <properties/>
+  <testcase name="start" classname="RecipesApplicationTest" time="8.046"/>
+  <system-out><![CDATA[?[1;31m
+Start test 1?[0m
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.5.6)
+
+2022-09-18 20:08:38.822  INFO 18100 --- [    Test worker] recipes.RecipesApplication               : Starting RecipesApplication using Java 17.0.2 on BENGOBRO with PID 18100 (started by user in C:\Users\user\projects\Recipes\Recipes\task)
+2022-09-18 20:08:38.831  INFO 18100 --- [    Test worker] recipes.RecipesApplication               : No active profile set, falling back to default profiles: default
+2022-09-18 20:08:41.934  INFO 18100 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8881 (http)
+2022-09-18 20:08:41.950  INFO 18100 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-18 20:08:41.950  INFO 18100 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2022-09-18 20:08:42.215  INFO 18100 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-18 20:08:42.215  INFO 18100 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3243 ms
+2022-09-18 20:08:43.795  INFO 18100 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2022-09-18 20:08:43.921  INFO 18100 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8881 (http) with context path ''
+2022-09-18 20:08:43.952  INFO 18100 --- [    Test worker] recipes.RecipesApplication               : Started RecipesApplication in 6.115 seconds (JVM running for 7.743)
+2022-09-18 20:08:44.781  INFO 18100 --- [nio-8881-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-18 20:08:44.781  INFO 18100 --- [nio-8881-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-18 20:08:44.781  INFO 18100 --- [nio-8881-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+?[1;31m
+Start test 2?[0m
+?[1;31m
+Start test 3?[0m
+?[1;31m
+Start test 4?[0m
+?[1;31m
+Start test 5?[0m
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
