@@ -1,43 +1,41 @@
 package recipes.business;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
+import java.util.List;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "recipes")
-@AllArgsConstructor
-@NoArgsConstructor
 public class Recipe {
 
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonIgnore
     private long id;
 
-    @Column(name = "name")
     @NotBlank
     private String name;
 
-    @Column(name = "description")
     @NotBlank
     private String description;
 
-    @Column(name = "ingredients")
+    @NotEmpty
     @ElementCollection
     @Size(min = 1)
-    private ArrayList<String> ingredients;
+    private List<String> ingredients;
 
-    @Column(name = "directions")
+
+    @NotEmpty
     @ElementCollection
     @Size(min = 1)
-    private ArrayList<String> directions;
+    private List<String> directions;
 
 }

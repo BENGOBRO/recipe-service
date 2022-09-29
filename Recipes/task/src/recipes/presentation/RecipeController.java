@@ -1,5 +1,6 @@
 package recipes.presentation;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,16 +9,15 @@ import recipes.business.Recipe;
 import recipes.business.RecipeService;
 
 import javax.validation.Valid;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.Map;
-import java.util.Optional;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/api/recipe")
 public class RecipeController {
 
-    @Autowired
-    private RecipeService recipeService;
+    private final RecipeService recipeService;
 
 //    @GetMapping("/recipes")
 //    public Map<Integer, Recipe> getRecipes() {
@@ -32,12 +32,11 @@ public class RecipeController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-//    @PostMapping("/new")
-//    public Map<String, Integer> addRecipe(@Valid @RequestBody Recipe recipe) {
-//        bookOfRecipe.getRecipes().put(++id, recipe);
-//        jsonObject.put("id", id);
-//        return jsonObject;
-//    }
+    @PostMapping("/new")
+    public Map<String, Long> addRecipe(@Valid @RequestBody Recipe recipe) {
+        Long id = recipeService.save(recipe).getId();
+        return Collections.singletonMap("id", id);
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<HttpStatus> deleteRecipe(@PathVariable long id) {
