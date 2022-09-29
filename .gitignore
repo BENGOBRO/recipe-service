@@ -24,6 +24,7 @@ hs_err_pid*
 
 # EduTools Files #
 *.yaml
+*.html
 First recipe/
 More chefs to the table/
 Multiple recipes/
