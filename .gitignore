@@ -23,8 +23,8 @@
 hs_err_pid*
 
 # EduTools Files #
-*.yaml
-First recipe/
+course-info.yaml
+Recipes/First recipe/
 More chefs to the table/
 Multipe recipes/
 Sort update/
