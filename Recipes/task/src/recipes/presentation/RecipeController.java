@@ -19,11 +19,6 @@ public class RecipeController {
 
     private final RecipeService recipeService;
 
-//    @GetMapping("/recipes")
-//    public Map<Integer, Recipe> getRecipes() {
-//        return bookOfRecipe.getRecipes();
-//    }
-
     @GetMapping("/{id}")
     public ResponseEntity<Recipe> getRecipe(@PathVariable long id) {
         if (recipeService.existsRecipe(id)) {
